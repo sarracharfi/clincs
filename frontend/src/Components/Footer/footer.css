@@ -1,0 +1,57 @@
+/* footer.css */
+
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.clinic-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  font-size: 20px;
+}
+
+.social-links a {
+  color: #333;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #007bff; /* couleur hover pour tous les icônes */
+}
+
+.copyright {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}

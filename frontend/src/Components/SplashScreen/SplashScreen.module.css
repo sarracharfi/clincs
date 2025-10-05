@@ -1,0 +1,362 @@
+/* CONTENEUR SPLASH 3D MODERNE */
+.splashContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #1a3d1f 0%, #2c5530 50%, #3d6b40 100%);
+  color: white;
+  text-align: center;
+  font-family: 'Inter', 'Arial', sans-serif;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+/* Effets 3D de fond */
+.splashContainer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+  animation: rotate3D 20s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.splashContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, transparent 65%, rgba(255, 255, 255, 0.05) 75%, transparent 85%),
+    linear-gradient(-45deg, transparent 65%, rgba(255, 255, 255, 0.05) 75%, transparent 85%);
+  animation: shine3D 8s ease-in-out infinite;
+}
+
+/* LOGO 3D */
+.logoContainer {
+  position: relative;
+  margin-bottom: 30px;
+  transform-style: preserve-3d;
+  animation: float3D 4s ease-in-out infinite;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 0;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
+  transform: translateZ(50px) rotateY(5deg);
+  transition: transform 0.5s ease;
+}
+
+.logo:hover {
+  transform: translateZ(80px) rotateY(15deg) scale(1.1);
+}
+
+.logoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(20px);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.6) 0%, rgba(44, 85, 48, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse3D 3s ease-in-out infinite;
+}
+
+/* TEXTE 3D */
+.textContainer {
+  margin-bottom: 40px;
+  transform-style: preserve-3d;
+}
+
+.splashContainer h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.4),
+    0 2px 5px rgba(0, 0, 0, 0.3);
+  transform: translateZ(40px);
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff, #e8f5e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.splashContainer p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.9);
+  transform: translateZ(30px);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* BARRE DE PROGRESSION 3D */
+.progressContainer {
+  transform-style: preserve-3d;
+  margin-bottom: 30px;
+}
+
+.progressWrapper {
+  background: rgba(26, 61, 31, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateZ(30px);
+  position: relative;
+  overflow: hidden;
+}
+
+.progressWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.2), transparent);
+  animation: slideShine 3s infinite;
+}
+
+.progressBar {
+  width: 100%;
+  height: 12px;
+  background: rgba(26, 61, 31, 0.6);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #8bc34a, #4caf50);
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(76, 175, 80, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Effet 3D sur la barre de progression */
+.progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 6px 6px 0 0;
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+  animation: progressGlow 1.5s ease-in-out infinite;
+}
+
+/* Informations de progression */
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  transform: translateZ(20px);
+}
+
+.progressText {
+  opacity: 0.9;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.progressPercent {
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #4caf50, #8bc34a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Éléments flottants 3D */
+.floatingElements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floatingElement {
+  position: absolute;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 50%;
+  animation: float3DElements 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.floatingElement:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floatingElement:nth-child(2) {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.floatingElement:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+/* ANIMATIONS 3D */
+@keyframes float3D {
+  0%, 100% { 
+    transform: translateY(0) rotateX(0) rotateY(0); 
+  }
+  33% { 
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg); 
+  }
+  66% { 
+    transform: translateY(5px) rotateX(-3deg) rotateY(-3deg); 
+  }
+}
+
+@keyframes pulse3D {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: translate(-50%, -50%) translateZ(20px) scale(1);
+  }
+  50% { 
+    opacity: 0.9; 
+    transform: translate(-50%, -50%) translateZ(20px) scale(1.1);
+  }
+}
+
+@keyframes rotate3D {
+  0% { transform: rotate(0deg) translateZ(0); }
+  100% { transform: rotate(360deg) translateZ(0); }
+}
+
+@keyframes shine3D {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes slideShine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes progressGlow {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+  }
+  50% { 
+    opacity: 0.7;
+    box-shadow: 0 0 25px rgba(76, 175, 80, 1);
+  }
+}
+
+@keyframes float3DElements {
+  0%, 100% { 
+    transform: translateY(0) translateZ(0) rotate(0deg); 
+  }
+  33% { 
+    transform: translateY(-20px) translateZ(10px) rotate(120deg); 
+  }
+  66% { 
+    transform: translateY(10px) translateZ(-10px) rotate(240deg); 
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .splashContainer h1 {
+    font-size: 2.2rem;
+  }
+  
+  .splashContainer p {
+    font-size: 1rem;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .logoGlow {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .progressWrapper {
+    padding: 15px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .splashContainer h1 {
+    font-size: 1.8rem;
+  }
+  
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .logoGlow {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .floatingElement {
+    display: none;
+  }
+}
